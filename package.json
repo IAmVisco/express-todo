@@ -9,8 +9,11 @@
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "connect-livereload": "^0.6.1",
     "eslint": "^5.12.1",
-    "eslint-config-google": "^0.11.0"
+    "gulp": "^4.0.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-livereload": "^4.0.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
