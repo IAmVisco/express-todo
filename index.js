@@ -1,7 +1,6 @@
 'use strict'
 
 const express = require('express')
-const lrServer = require('tiny-lr')()
 const routes = require('./routes/index.js')
 require('dotenv').config()
 
@@ -20,5 +19,6 @@ app.use(require('connect-livereload')({
 routes(app)
 
 app.listen(port, () => {
-    console.log("Express server listening on http://localhost:%d in %s mode.", port, app.get("env"))
+    // eslint-disable-next-line no-console
+    console.log('Express server listening on http://localhost:%d in %s mode.', port, app.get('env'))
 })
