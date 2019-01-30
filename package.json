@@ -13,7 +13,8 @@
     "eslint": "^5.12.1",
     "gulp": "^4.0.0",
     "gulp-cli": "^2.0.1",
-    "gulp-livereload": "^4.0.1"
+    "gulp-livereload": "^4.0.1",
+    "gulp-nodemon": "^2.4.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

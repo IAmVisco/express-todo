@@ -9,19 +9,16 @@ const app = express()
 const port = process.env.PORT || 3000
 const liveReloadPort = 35729
 
-app.use('/public', express.static(process.cwd() + '/public/'))
-// app.use(require('connect-livereload')({
-//     port: liveReloadPort
-// }))
 app.set('view engine', 'ejs')
 
-routes(app)
+app.use('/public', express.static(process.cwd() + '/public/'))
 
-// app.get('/', (req, res) => {
-//     res.send('Main page')
-// })
+app.use(require('connect-livereload')({
+    port: liveReloadPort
+}))
+
+routes(app)
 
 app.listen(port, () => {
     console.log("Express server listening on http://localhost:%d in %s mode.", port, app.get("env"))
 })
-// lrServer.listen(liveReloadPort)
