@@ -1,22 +1,31 @@
 'use strict'
 
 const express = require('express')
-const routes = require('./routes/index.js')
-require('dotenv').config()
+const fs = require('fs')
 
 const app = express()
-const port = process.env.PORT || 3000
+const data = JSON.parse(fs.readFileSync('data/data.json', 'utf8'))
+const port = 3000
 const liveReloadPort = 35729
 
 app.set('view engine', 'ejs')
 
-app.use('/public', express.static(process.cwd() + '/public/'))
+app.use(express.static('static'))
 
 app.use(require('connect-livereload')({
     port: liveReloadPort
 }))
 
-routes(app)
+app.use((req, res, next) => {
+    res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')
+    res.header('Expires', '-1')
+    res.header('Pragma', 'no-cache')
+    next()
+})
+
+app.get('/', (req, res) => {
+    res.render('pages/index', {data: data})
+})
 
 app.listen(port, () => {
     // eslint-disable-next-line no-console
