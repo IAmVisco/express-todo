@@ -14,8 +14,9 @@ function runProject () {
 
     lr.listen(liveReloadPort)
 
-    watch(['public/**', 'routes/**', 'views/**'], () => {
+    watch(['public/**', 'routes/**', 'views/**'], (cb) => {
         lr.reload()
+        cb()
     })
 }
 
