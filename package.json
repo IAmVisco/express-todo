@@ -1,11 +1,12 @@
 {
-  "name": "express_test",
+  "name": "express-todo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "uploadcare": "^0.4.5"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.1",
@@ -19,6 +20,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Visco"
 }

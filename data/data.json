@@ -7,6 +7,11 @@
             "Use Express",
             "Learn EJS"
         ],
+        "color": "blue",
+        "status": "to-do",
+        "files": [
+
+        ],
         "createdAt": "2019-01-30",
         "dueTo": null
     },
