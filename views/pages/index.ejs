@@ -6,13 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EJS Demo</title>
 
-    <% include ../partials/styles %>
+    <% include ../partials/head %>
 </head>
 <body>
     <% include ../partials/nav %>
     <div class="row">
-        <% include ../partials/sidebar %>
-        <% include ../partials/cards %>
+        <div class="col-lg-3">
+            <% include ../partials/sidebar %>
+        </div>
+        <div class="col-lg-9">
+            <% include ../partials/cards %>
+        </div>
     </div>
     <% include ../partials/footer %>
     <% include ../partials/scripts %>

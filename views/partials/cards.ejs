@@ -1,18 +1,17 @@
-<div class="col-9">
-    <div class="container">
-        <% data.forEach((card) => { %>
-            <div class="paper-card">
-                <h3><%= card.name %></h3>
-                <p><%= card.description %></p>
-                <% if (card.subtasks) { -%>
-                    <ul>
-                        <% card.subtasks.forEach((subtask) => { %>
-                            <li><%= subtask %></li>
-                        <% }) %>
-                    </ul>
+<div class="container top-margin-22">
+    <% data.forEach((card) => { %>
+        <div class="paper-card <%= card.color %>">
+            <h3><%= card.name %></h3>
+            <p><%= card.description %></p>
+            <% if (card.dueTo) { -%>
+                <% if (moment().isBefore(card.dueTo)) { -%>
+                    <p class="no-bot-margin">Due to <%= moment(card.dueTo).format('MMM Do YYYY') %></p>
+                <% } else { -%>
+                    <p class="text-danger no-bot-margin">Due to <%= moment(card.dueTo).format('MMM Do YYYY') %></p>
                 <% } -%>
-                <p class="no-margin"><%= card.createdAt %></p>
-            </div>
-        <% })%>
-    </div>
+            <% } -%>
+            <p></p>
+            <small class="no-bot-margin text-muted"><%= moment(card.createdAt).format('MMM Do YYYY') %></small>
+        </div>
+    <% })%>
 </div>

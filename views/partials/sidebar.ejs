@@ -1,19 +1,74 @@
-<div class="col-3">
-    <div class="container" style="margin-top: 50px">
-        <form method="post">
-            <div class="from-group">
-                <label for="cardName">Name</label>
-                <input type="text" class="form-control" id="cardName" name="name">
+<div class="container top-margin-25">
+    <form method="post">
+        <div class="from-group">
+            <label for="cardName" class="required">Name</label>
+            <input type="text" class="form-control" id="cardName" name="name" required autofocus>
+        </div>
+        <div class="form-group">
+            <label for="cardDesc" class="required">Description</label>
+            <textarea type="text" class="form-control" id="cardDesc" name="desc" required></textarea>
+        </div>
+        <div class="form-group">
+            <label class="required">Progress</label>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="progress" value="planning" checked>Planning
+                </label>
             </div>
-            <div class="form-group">
-                <label for="cardDesc">Description</label>
-                <textarea type="text" class="form-control" id="cardDesc" name="desc"></textarea>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="progress" value="progress">In Progress
+                </label>
             </div>
-            <div class="form-group">
-                <label for="uploader">Files</label>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="radio" class="form-check-input" name="progress" value="completed">Completed
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="required" style="display: block;">Color</label>
+
+            <input type="radio" name="color" class="material-radio" id="grey" value="grey" checked />
+            <label class="material-label" for="grey"><span class="grey"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="red" value="red" />
+            <label class="material-label" for="red"><span class="red"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="orange" value="orange" />
+            <label class="material-label" for="orange"><span class="orange"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="yellow" value="yellow" />
+            <label class="material-label" for="yellow"><span class="yellow"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="green" value="green" />
+            <label class="material-label" for="green"><span class="green"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="blue-green" value="blue-green" />
+            <label class="material-label" for="blue-green"><span class="blue-green"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="blue" value="blue" />
+            <label class="material-label" for="blue"><span class="blue"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="dark-blue" value="dark-blue" />
+            <label class="material-label" for="dark-blue"><span class="dark-blue"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="purple" value="purple" />
+            <label class="material-label" for="purple"><span class="purple"></span></label>
+
+            <input type="radio" name="color" class="material-radio" id="pink" value="pink" />
+            <label class="material-label" for="pink"><span class="pink"></span></label>
+        </div>
+        <div class="form-group">
+            <label for="dueTo">Due to</label>
+            <input type="text" class="form-control" name="dueTo" id="dueTo" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="uploader">Files</label>
+            <p class="uploader-yellow-button">
                 <input type="hidden" role="uploadcare-uploader" id="uploader" name="files" data-multiple="true" />
-            </div>
-            <button class="btn btn-primary">Save</button>
-        </form>
-    </div>
+            </p>
+        </div>
+        <button class="btn btn-primary">Save</button>
+    </form>
 </div>

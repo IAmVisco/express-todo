@@ -4,9 +4,10 @@ const express = require('express')
 const fs = require('fs')
 const bodyParser = require('body-parser')
 const uploadcare = require('uploadcare')('demopublickey', 'demoprivatekey')
+const moment = require('moment')
 
 const app = express()
-const data = JSON.parse(fs.readFileSync('data/data.json', 'utf8'))
+const data = require('./data/data.json')
 const port = 3000
 const liveReloadPort = 35729
 
@@ -32,14 +33,15 @@ app.use((req, res, next) => {
 })
 
 app.get('/', (req, res) => {
-    res.render('pages/index', {data: data})
+    res.render('pages/index', {data: data, moment: moment})
 })
 
 app.post('/', (req, res) => {
-    uploadcare.groups.info(req.body.files.slice(21, req.body.files.length - 1), (err, data) => {
-        console.log(data)
-    })
-    res.render('pages/index', {data: data})
+    console.log(req.body)
+    // uploadcare.groups.info(req.body.files.slice(21, req.body.files.length - 1), (err, data) => {
+    //     console.log(data)
+    // })
+    res.render('pages/index', {data: data, moment: moment})
 })
 
 app.listen(port, () => {
