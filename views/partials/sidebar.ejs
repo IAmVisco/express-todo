@@ -2,27 +2,27 @@
     <form method="post">
         <div class="from-group">
             <label for="cardName" class="required">Name</label>
-            <input type="text" class="form-control" id="cardName" name="name" required autofocus>
+            <input type="text" class="form-control" id="cardName" name="name" required>
         </div>
         <div class="form-group">
             <label for="cardDesc" class="required">Description</label>
-            <textarea type="text" class="form-control" id="cardDesc" name="desc" required></textarea>
+            <textarea type="text" class="form-control" id="cardDesc" name="description" required></textarea>
         </div>
         <div class="form-group">
             <label class="required">Progress</label>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="progress" value="planning" checked>Planning
+                    <input type="radio" class="form-check-input" name="status" value="planning" checked>Planning
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="progress" value="progress">In Progress
+                    <input type="radio" class="form-check-input" name="status" value="progress">In Progress
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="progress" value="completed">Completed
+                    <input type="radio" class="form-check-input" name="status" value="completed">Completed
                 </label>
             </div>
         </div>

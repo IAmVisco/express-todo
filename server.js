@@ -38,7 +38,14 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-    console.log(req.body)
+    let card = req.body
+    card.createdAt = moment().format('YYYY-MM-DD')
+    data.unshift(card)
+    fs.writeFile('./data/data.json', JSON.stringify(data), 'utf8', (err, data) => {
+        if (err) {
+            throw err;
+        }
+    })
     // uploadcare.groups.info(req.body.files.slice(21, req.body.files.length - 1), (err, data) => {
     //     console.log(data)
     // })

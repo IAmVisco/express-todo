@@ -7,14 +7,15 @@ const liveReloadPort = 35729
 
 function runProject () {
     nodemon({
-        script: 'server.js'
+        script: 'server.js',
+        ignore: ['data/']
     }).on('restart', () => {
         console.log('Restarted!') // eslint-disable-line no-console
     })
 
     lr.listen(liveReloadPort)
 
-    watch(['static/**', 'views/**', '*.js'], (cb) => {
+    watch(['static/**', 'views/**', '*.js', '!data/**'], (cb) => {
         lr.reload()
         cb()
     })

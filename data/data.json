@@ -1,5 +1,23 @@
 [
     {
+        "name": "new name",
+        "description": "description",
+        "status": "progress",
+        "color": "orange",
+        "dueTo": "2019-02-09",
+        "files": "",
+        "createdAt": "2019-01-31"
+    },
+    {
+        "name": "New card",
+        "description": "Wow this one is saved to json! And its pink!",
+        "status": "completed",
+        "color": "pink",
+        "dueTo": "2019-01-31",
+        "files": "https://ucarecdn.com/5c3c566b-caa3-439b-8c55-2b03a4bfcc5c~1/",
+        "createdAt": "2019-01-31"
+    },
+    {
         "name": "Learn node.js",
         "description": "How to make lab 1",
         "color": "blue",
