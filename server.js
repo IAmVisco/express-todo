@@ -8,7 +8,7 @@ const moment = require('moment')
 
 const app = express()
 const data = require('./data/data.json')
-const port = 3000
+const port = process.env.PORT || 3000
 const liveReloadPort = 35729
 
 app.set('view engine', 'ejs')
@@ -20,10 +20,11 @@ app.use(bodyParser.urlencoded({
 }))
 
 app.use(bodyParser.json())
-
-app.use(require('connect-livereload')({
-    port: liveReloadPort
-}))
+if (process.env.NODE_ENV === 'dev') {
+    app.use(require('connect-livereload')({
+        port: liveReloadPort
+    }))
+}
 
 app.use((req, res, next) => {
     res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')
