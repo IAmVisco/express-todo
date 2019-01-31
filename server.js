@@ -3,7 +3,6 @@
 const express = require('express')
 const fs = require('fs')
 const bodyParser = require('body-parser')
-const uploadcare = require('uploadcare')('demopublickey', 'demoprivatekey')
 const moment = require('moment')
 
 const app = express()
@@ -41,14 +40,11 @@ app.post('/', (req, res) => {
     let card = req.body
     card.createdAt = moment().format('YYYY-MM-DD')
     data.unshift(card)
-    fs.writeFile('./data/data.json', JSON.stringify(data), 'utf8', (err, data) => {
+    fs.writeFile('./data/data.json', JSON.stringify(data), 'utf8', (err) => {
         if (err) {
-            throw err;
+            throw err
         }
     })
-    // uploadcare.groups.info(req.body.files.slice(21, req.body.files.length - 1), (err, data) => {
-    //     console.log(data)
-    // })
     res.render('pages/index', {data: data, moment: moment})
 })
 

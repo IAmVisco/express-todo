@@ -22,7 +22,7 @@
         "description": "How to make lab 1",
         "color": "blue",
         "status": "progress",
-        "files": [],
+        "files": "",
         "createdAt": "2019-01-30",
         "dueTo": "2019-01-30"
     },
@@ -31,6 +31,7 @@
         "description": "This one has default color",
         "color": "grey",
         "status": "planning",
+        "files": "",
         "createdAt": "2019-01-30",
         "dueTo": "2019-02-15"
     }
