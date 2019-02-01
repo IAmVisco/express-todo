@@ -1,14 +1,5 @@
 [
     {
-        "name": "new name",
-        "description": "description",
-        "status": "progress",
-        "color": "orange",
-        "dueTo": "2019-02-09",
-        "files": "",
-        "createdAt": "2019-01-31"
-    },
-    {
         "name": "New card",
         "description": "Wow this one is saved to json! And its pink!",
         "status": "completed",
@@ -28,7 +19,7 @@
     },
     {
         "name": "Learn something else",
-        "description": "This one has default color",
+        "description": "Like React, I heard its awesome. Same goes to GraphQL but I kinda know that one already, used it in AniList API queries.",
         "color": "grey",
         "status": "planning",
         "files": "",

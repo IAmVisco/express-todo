@@ -1,33 +1,34 @@
 <div class="container top-margin-25">
-    <form method="post">
+    <button class="btn-block" data-toggle="collapse" data-target="#createForm">Create new<i class="fas fa-angle-down"></i></button>
+    <form method="post" action="/" class="collapse show" id="createForm">
         <div class="from-group">
-            <label for="cardName" class="required">Name</label>
+            <label for="cardName">Name</label>
             <input type="text" class="form-control" id="cardName" name="name" required>
         </div>
         <div class="form-group">
-            <label for="cardDesc" class="required">Description</label>
-            <textarea type="text" class="form-control" id="cardDesc" name="description" required></textarea>
+            <label for="cardDesc">Description</label>
+            <textarea type="text" class="form-control" id="cardDesc" name="description"></textarea>
         </div>
         <div class="form-group">
-            <label class="required">Progress</label>
+            <label>Progress</label>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="status" value="planning" checked>Planning
+                    <input type="radio" class="form-check-input" name="status" value="planning" checked><%= status['planning'] %>
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="status" value="progress">In Progress
+                    <input type="radio" class="form-check-input" name="status" value="progress"><%= status['progress'] %>
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="status" value="completed">Completed
+                    <input type="radio" class="form-check-input" name="status" value="completed"><%= status['completed'] %>
                 </label>
             </div>
         </div>
         <div class="form-group">
-            <label class="required" style="display: block;">Color</label>
+            <label style="display: block;">Color</label>
 
             <input type="radio" name="color" class="material-radio" id="grey" value="grey" checked />
             <label class="material-label" for="grey"><span class="grey"></span></label>
@@ -69,6 +70,29 @@
                 <input type="hidden" role="uploadcare-uploader" id="uploader" name="files" data-multiple="true" />
             </p>
         </div>
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary btn-wide">Save</button>
     </form>
+    <button class="btn-block collapsed" data-toggle="collapse" data-target="#searchForm">Filter<i class="fas fa-angle-down"></i></button>
+    <form method="post" action="/filter" id="searchForm" class="collapse">
+        <div class="form-group">
+            <label>Progress</label>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="status" value="planning"><%= status['planning'] %>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="status" value="progress"><%= status['progress'] %>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="status" value="completed"><%= status['completed'] %>
+                </label>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-half" type="submit" value="find" name="btn">Find</button>
+        <button class="btn btn-info btn-half" type="submit" value="reset" name="btn">Reset</button>
+    </from>
 </div>

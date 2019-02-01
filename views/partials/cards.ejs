@@ -1,19 +1,23 @@
-<div class="container top-margin-22">
+<div class="container top-margin-15">
     <% data.forEach((card) => { %>
         <div class="paper-card <%= card.color %>">
             <h3><%= card.name %></h3>
             <p><%= card.description %></p>
-            <% if (card.dueTo) { -%>
-                <% if (moment().isBefore(card.dueTo)) { -%>
-                    <p class="no-bot-margin">Due to <%= moment(card.dueTo).format('MMM Do YYYY') %></p>
-                <% } else { -%>
-                    <p class="text-danger no-bot-margin">Due to <%= moment(card.dueTo).format('MMM Do YYYY') %></p>
-                <% } -%>
-            <% } -%>
             <% if (card.files) { -%>
                 <a href="<%= card.files %>" target="_blank">Attachements</a>
             <% } -%>
-            <small class="no-bot-margin text-muted"><%= moment(card.createdAt).format('MMM Do YYYY') %></small>
+            <% if (card.dueTo) { -%>
+                <% if (moment().isBefore(card.dueTo) || card.status === 'completed') { -%>
+                    <p>Due to <%= moment(card.dueTo).format('MMM Do YYYY') %></p>
+                <% } else { -%>
+                    <p class="text-danger">Due to <%= moment(card.dueTo).format('MMM Do YYYY') %></p>
+                <% } -%>
+            <% } -%>
+
+            <div class="paper-card-footer">
+                <span class="small"><i class="fas <%= icon[card.status] %>"></i><%= status[card.status] %></span>
+                <span class="text-muted small pull-right">Created at <%= moment(card.createdAt).format('MMM Do YYYY') %></span>
+            </div>
         </div>
     <% })%>
 </div>
