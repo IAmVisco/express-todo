@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const moment = require('moment')
 
 const app = express()
+const { status, icon } = require('./data/const.json')
 const data = require('./data/data.json')
 const port = process.env.PORT || 3000
 const liveReloadPort = 35729
@@ -24,25 +25,13 @@ if (app.get('env') === 'development') {
     app.use(require('connect-livereload')({
         port: liveReloadPort
     }))
-    // do not cache styles etc for debug
+
     app.use((req, res, next) => {
         res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')
         res.header('Expires', '-1')
         res.header('Pragma', 'no-cache')
         next()
     })
-}
-
-const status = { // require from somewhere
-    'completed': 'Completed',
-    'progress': 'In progress',
-    'planning': 'Planning'
-}
-
-const icon = {
-    'completed': 'fa-check',
-    'progress': 'fa-clock',
-    'planning': 'fa-edit'
 }
 
 app.get('/', (req, res) => {
